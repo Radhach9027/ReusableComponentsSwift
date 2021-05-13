@@ -8,7 +8,7 @@ extension Nib where Self : UIView {
     
     public func registerNib(window: UIWindow) {
         guard let nibName = type(of: self).description().components(separatedBy: ".").last else { return }
-        guard let view = Bundle(for: type(of: self)).loadNibNamed(nibName, owner: self, options: nil)?.first as? UIView
+        guard let view = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as? UIView
         else { return }
         addSubview(view)
         window.addSubview(self)
