@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomPopup">
+            <connections>
+                <outlet property="customPopView" destination="7oy-9f-p9H" id="Uxg-br-5re"/>
+                <outlet property="dismissButton" destination="h0r-s7-Bwt" id="hmz-Y2-2VK"/>
+                <outlet property="headerBgView" destination="C3Y-Vk-Xrb" id="zq4-XN-X7L"/>
+                <outlet property="headerCircularImageView" destination="yKi-pK-N35" id="rIc-Gn-sZP"/>
+                <outlet property="headerCircularView" destination="nSS-ay-rXg" id="4Pk-k0-wQU"/>
+                <outlet property="messageLabel" destination="Sbt-nT-vzt" id="Ted-Sj-CFm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oy-9f-p9H" customClass="CustomView" customModule="MVVM_C" customModuleProvider="target">
+                    <rect key="frame" x="31" y="367" width="352" height="162"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample" translatesAutoresizingMaskIntoConstraints="NO" id="C3Y-Vk-Xrb" customClass="CustomImageView" customModule="MVVM_C" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="352" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="1z0-F7-4LK"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSS-ay-rXg" customClass="CustomView" customModule="MVVM_C" customModuleProvider="target">
+                            <rect key="frame" x="126" y="-50" width="100" height="100"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample" translatesAutoresizingMaskIntoConstraints="NO" id="yKi-pK-N35" customClass="CustomImageView" customModule="MVVM_C" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="50"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="yKi-pK-N35" firstAttribute="top" secondItem="nSS-ay-rXg" secondAttribute="top" id="Iaj-45-pLR"/>
+                                <constraint firstItem="yKi-pK-N35" firstAttribute="width" secondItem="nSS-ay-rXg" secondAttribute="width" id="Sq9-xI-tev"/>
+                                <constraint firstAttribute="width" constant="100" id="UMv-s6-V6X"/>
+                                <constraint firstItem="yKi-pK-N35" firstAttribute="leading" secondItem="nSS-ay-rXg" secondAttribute="leading" id="Uvs-Hk-9xM"/>
+                                <constraint firstAttribute="height" constant="100" id="fdZ-j8-zAe"/>
+                                <constraint firstItem="yKi-pK-N35" firstAttribute="height" secondItem="nSS-ay-rXg" secondAttribute="height" id="ww1-5y-nCM"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="50"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                    <size key="value" width="1.5" height="1.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbt-nT-vzt">
+                            <rect key="frame" x="8" y="120" width="336" height="0.0"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0r-s7-Bwt" customClass="CustomButton" customModule="MVVM_C" customModuleProvider="target">
+                            <rect key="frame" x="116" y="140" width="120" height="40"/>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="1rp-nz-Lwe"/>
+                                <constraint firstAttribute="height" constant="40" id="6K9-se-ZcL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="16"/>
+                            <state key="normal" title="Close">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="1.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                    <size key="value" width="1" height="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="-1" eventType="touchUpInside" id="XTx-Qh-5aY"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Sbt-nT-vzt" secondAttribute="trailing" constant="8" id="Cvi-gR-4X4"/>
+                        <constraint firstItem="C3Y-Vk-Xrb" firstAttribute="leading" secondItem="7oy-9f-p9H" secondAttribute="leading" id="K2x-3E-uh1"/>
+                        <constraint firstItem="h0r-s7-Bwt" firstAttribute="top" secondItem="Sbt-nT-vzt" secondAttribute="bottom" constant="20" id="KAA-J0-uf4"/>
+                        <constraint firstItem="Sbt-nT-vzt" firstAttribute="leading" secondItem="7oy-9f-p9H" secondAttribute="leading" constant="8" id="QE1-u8-hHc"/>
+                        <constraint firstAttribute="trailing" secondItem="C3Y-Vk-Xrb" secondAttribute="trailing" id="f8D-zZ-WV1"/>
+                        <constraint firstItem="h0r-s7-Bwt" firstAttribute="centerX" secondItem="7oy-9f-p9H" secondAttribute="centerX" id="mg0-ki-gZ5"/>
+                        <constraint firstAttribute="bottom" secondItem="h0r-s7-Bwt" secondAttribute="bottom" constant="-18" id="n3H-Ue-5pM"/>
+                        <constraint firstItem="Sbt-nT-vzt" firstAttribute="top" secondItem="C3Y-Vk-Xrb" secondAttribute="bottom" constant="20" id="oEG-mD-OhO"/>
+                        <constraint firstItem="nSS-ay-rXg" firstAttribute="top" secondItem="7oy-9f-p9H" secondAttribute="top" constant="-50" id="upT-h1-sn8"/>
+                        <constraint firstItem="C3Y-Vk-Xrb" firstAttribute="top" secondItem="7oy-9f-p9H" secondAttribute="top" id="wRC-2U-x6S"/>
+                        <constraint firstItem="nSS-ay-rXg" firstAttribute="centerX" secondItem="7oy-9f-p9H" secondAttribute="centerX" id="yHc-gB-dyf"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="1" height="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7oy-9f-p9H" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7N1-r2-xQo"/>
+                <constraint firstItem="7oy-9f-p9H" firstAttribute="height" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.75" id="8NR-RT-TQw"/>
+                <constraint firstItem="7oy-9f-p9H" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.85" id="9hF-cG-YN6"/>
+                <constraint firstItem="7oy-9f-p9H" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lgR-1B-UpD"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="128.57142857142856"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="C3Y-Vk-Xrb">
+            <size key="intrinsicContentSize" width="1024" height="683"/>
+        </designable>
+        <designable name="h0r-s7-Bwt">
+            <size key="intrinsicContentSize" width="40" height="35"/>
+        </designable>
+        <designable name="yKi-pK-N35">
+            <size key="intrinsicContentSize" width="1024" height="683"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Sample" width="1024" height="683"/>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

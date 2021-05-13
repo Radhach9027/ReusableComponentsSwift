@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingIndicator" customModule="Laso_Care" customModuleProvider="target">
+            <connections>
+                <outlet property="loadingView" destination="bgC-fH-MuR" id="vyP-gD-0RY"/>
+                <outlet property="spinner" destination="lug-LS-B4r" id="OGP-dW-UE1"/>
+                <outlet property="statusImageView" destination="Kq1-RA-eV2" id="Hoq-ZK-WPW"/>
+                <outlet property="titleLabel" destination="uT2-D6-NNs" id="9fo-5Q-ka5"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgC-fH-MuR" customClass="CustomView" customModule="Laso_Care" customModuleProvider="target">
+                    <rect key="frame" x="132" y="388" width="150" height="120"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kq1-RA-eV2">
+                            <rect key="frame" x="50" y="35" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="16l-ts-92F"/>
+                                <constraint firstAttribute="width" constant="50" id="SRc-jq-1hI"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching data..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uT2-D6-NNs">
+                            <rect key="frame" x="2" y="72" width="146" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="T3e-WP-o0j"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="EGv-MM-hLe"/>
+                        <constraint firstAttribute="trailing" secondItem="uT2-D6-NNs" secondAttribute="trailing" constant="2" id="FZI-Vl-DWy"/>
+                        <constraint firstItem="Kq1-RA-eV2" firstAttribute="centerY" secondItem="bgC-fH-MuR" secondAttribute="centerY" id="NUv-x7-Q15"/>
+                        <constraint firstAttribute="width" constant="150" id="OSj-YP-fcW"/>
+                        <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="uT2-D6-NNs" secondAttribute="bottom" constant="5" id="aH5-jh-sRx"/>
+                        <constraint firstItem="Kq1-RA-eV2" firstAttribute="centerX" secondItem="bgC-fH-MuR" secondAttribute="centerX" id="iOG-Kb-rk3"/>
+                        <constraint firstItem="uT2-D6-NNs" firstAttribute="leading" secondItem="bgC-fH-MuR" secondAttribute="leading" constant="2" id="tSF-kv-ImO"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="2" height="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lug-LS-B4r">
+                    <rect key="frame" x="187" y="415" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="d4Y-nj-vGl"/>
+                        <constraint firstAttribute="width" constant="40" id="qch-J3-tma"/>
+                    </constraints>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25387874119718312" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="uT2-D6-NNs" firstAttribute="top" relation="lessThanOrEqual" secondItem="lug-LS-B4r" secondAttribute="bottom" constant="5" id="27o-Vc-eaC"/>
+                <constraint firstItem="bgC-fH-MuR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6fW-Jr-kR4"/>
+                <constraint firstItem="bgC-fH-MuR" firstAttribute="top" secondItem="lug-LS-B4r" secondAttribute="bottom" constant="-67" id="AXu-8x-fAS"/>
+                <constraint firstItem="bgC-fH-MuR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="n8g-Ws-lw9"/>
+                <constraint firstItem="lug-LS-B4r" firstAttribute="centerX" secondItem="bgC-fH-MuR" secondAttribute="centerX" id="xEZ-Wu-l8y"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="139" y="133"/>
+        </view>
+    </objects>
+</document>
