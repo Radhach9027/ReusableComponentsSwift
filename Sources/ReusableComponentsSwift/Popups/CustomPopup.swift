@@ -50,7 +50,6 @@ public final class CustomPopup: UIView, Nib {
     @IBOutlet weak var headerCircularImageView: CustomImageView!
     @IBOutlet weak var dismissButton: CustomButton!
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var scroll: UIScrollView!
     private var currentState: CustomPopupAnimateOptions = .affineIn
 }
 

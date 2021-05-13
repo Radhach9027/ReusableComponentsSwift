@@ -8,11 +8,6 @@ extension Nib where Self : UIView {
     
     public func registerNib(window: UIWindow) {
         guard let nibName = type(of: self).description().components(separatedBy: ".").last else { return }
-        #if !TARGET_INTERFACE_BUILDER
-        let bundle = Bundle(for: type(of: self))
-        guard let _ = bundle.path(forResource: nibName, ofType: "nib")
-        else { fatalError("can't find \(nibName) xib resource in current bundle") }
-        #endif
         guard let view = Bundle(for: type(of: self)).loadNibNamed(nibName, owner: self, options: nil)?.first as? UIView
         else { return }
         addSubview(view)
