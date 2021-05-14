@@ -13,22 +13,9 @@ public enum AnimatePosition {
 
 public final class LoadingIndicator: UIView, Nib {
     
-    private static var sharedInstance: LoadingIndicator?
-    
-    public class var shared : LoadingIndicator {
-        
-        guard let instance = self.sharedInstance else {
-            let strongInstance = LoadingIndicator()
-            self.sharedInstance = strongInstance
-            return strongInstance
-        }
-        return instance
-    }
-    
-    class func destroy() {
-        DispatchQueue.main.async() {
-            sharedInstance = nil
-        }
+    static let shared = LoadingIndicator()
+    private init() {
+        super.init(frame: .zero)
     }
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -39,11 +26,8 @@ public final class LoadingIndicator: UIView, Nib {
     private var status: Bool = false
     private var title: String?
     private var duration: Double = 0.25
-    public var _window: UIWindow?
+    private var _window: UIWindow?
     
-    private init() {
-        super.init(frame: .zero)
-    }
     
     public func config(window: UIWindow) {
         self._window = window
@@ -103,7 +87,6 @@ private extension LoadingIndicator {
         UIView.animate(withDuration: 0.6, animations: { [weak self] in
             self?.alpha = 0
         }) { [weak self] (true)  in
-            LoadingIndicator.destroy()
             self?.removeFromSuperview()
         }
     }
