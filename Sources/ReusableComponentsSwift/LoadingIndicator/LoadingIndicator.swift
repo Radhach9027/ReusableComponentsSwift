@@ -39,18 +39,16 @@ public final class LoadingIndicator: UIView, Nib {
     private var status: Bool = false
     private var title: String?
     private var duration: Double = 0.25
-    
+    public var _window: UIWindow?
     
     private init() {
         super.init(frame: .zero)
+        guard let window = self._window else { return }
+        loadNibFile(window: window)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    public func config(window: UIWindow) {
-        loadNibFile(window: window)
     }
     
     public func loading(step: LoadingSteps, title: String? = "Loading...") {
