@@ -91,7 +91,7 @@ private extension AnimatedView {
                 
                 switch postion {
                     case .top:
-                        self.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor, constant: controller.navigationController?.isNavigationBarHidden == true ? 20: 50).isActive = true
+                        self.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor, constant: controller.navigationController?.isNavigationBarHidden == true ? 20: 25).isActive = true
                     case .bottom:
                         self.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor, constant: -(self.viewHeight(message) + (controller.tabBarController?.hidesBottomBarWhenPushed == true ? 0 : 5))).isActive = true
                     case .middle:
