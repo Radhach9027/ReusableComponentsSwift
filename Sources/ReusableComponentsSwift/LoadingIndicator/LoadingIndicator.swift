@@ -13,7 +13,7 @@ public enum AnimatePosition {
 
 public final class LoadingIndicator: UIView, Nib {
     
-    static let shared = LoadingIndicator()
+    public static let shared = LoadingIndicator()
     private init() {
         super.init(frame: .zero)
     }
