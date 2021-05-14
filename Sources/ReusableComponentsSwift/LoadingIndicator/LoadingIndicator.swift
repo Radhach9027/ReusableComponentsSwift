@@ -27,10 +27,15 @@ public final class LoadingIndicator: UIView, Nib {
         super.init(frame: .zero)
         self.loadNibFile(window: window)
         self._window = window
+        print("LoadingIndicator init")
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    deinit {
+        print("LoadingIndicator de-init")
     }
     
     public func loading(step: LoadingSteps, title: String? = "Loading...") {

@@ -9,30 +9,12 @@ public enum CustomPopupAnimateOptions {
 
 public final class CustomPopup: UIView, Nib {
     
-    private static var sharedInstance: CustomPopup?
-    
-    public class var shared : CustomPopup {
-        guard let instance = self.sharedInstance else {
-            let strongInstance = CustomPopup()
-            self.sharedInstance = strongInstance
-            return strongInstance
-        }
-        return instance
-    }
-    
-    class func destroy() {
-        DispatchQueue.main.async() {
-            sharedInstance = nil
-        }
-    }
-    
-    private init() {
+    private var _window: UIWindow?
+    public init(window: UIWindow) {
         super.init(frame: .zero)
+        self.loadNibFile(window: window)
+        self._window = window
         print("CustomPopup init")
-    }
-    
-    public func config(window: UIWindow) {
-        loadNibFile(window: window)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,7 +22,6 @@ public final class CustomPopup: UIView, Nib {
     }
     
     deinit {
-        CustomPopup.destroy()
         print("CustomPopup de-init")
     }
     
@@ -75,6 +56,5 @@ private extension CustomPopup {
     
     @IBAction func closeButtonPressed(_ sender: Any) {
         self.dismiss(animate: currentState)
-        CustomPopup.destroy()
     }
 }
