@@ -43,7 +43,10 @@ public final class LoadingIndicator: UIView, Nib {
     
     private init() {
         super.init(frame: .zero)
-        guard let window = self._window else { return }
+    }
+    
+    public func config(window: UIWindow) {
+        self._window = window
         loadNibFile(window: window)
     }
     
