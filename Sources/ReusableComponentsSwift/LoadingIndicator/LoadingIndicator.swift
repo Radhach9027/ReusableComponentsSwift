@@ -12,7 +12,7 @@ public enum AnimatePosition {
 }
 
 public final class LoadingIndicator: UIView, Nib {
-    
+    public static let shared = LoadingIndicator()
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var loadingView: CustomView!
@@ -21,12 +21,9 @@ public final class LoadingIndicator: UIView, Nib {
     private var status: Bool = false
     private var title: String?
     private var duration: Double = 0.25
-    private var _window: UIWindow?
     
-    public init(window: UIWindow) {
+    private init() {
         super.init(frame: .zero)
-        self.loadNibFile(window: window)
-        self._window = window
         print("LoadingIndicator init")
     }
     
@@ -38,11 +35,12 @@ public final class LoadingIndicator: UIView, Nib {
         print("LoadingIndicator de-init")
     }
     
-    public func loading(step: LoadingSteps, title: String? = "Loading...") {
+    public func loading(step: LoadingSteps, title: String? = "Loading...", window: UIWindow) {
         
         self.title = title
         switch step {
             case .start(let animated):
+                loadNibFile(window: window)
                 startAnimating(animated: animated)
             case .end:
                 stopAnimating()
