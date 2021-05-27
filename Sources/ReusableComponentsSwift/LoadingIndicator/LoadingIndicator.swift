@@ -35,12 +35,15 @@ public final class LoadingIndicator: UIView, Nib {
         print("LoadingIndicator de-init")
     }
     
-    public func loading(step: LoadingSteps, title: String? = "Loading...", window: UIWindow) {
+    public func config(window: UIWindow){
+        loadNibFile(window: window)
+    }
+    
+    public func loading(step: LoadingSteps, title: String? = "Loading...") {
         
         self.title = title
         switch step {
             case .start(let animated):
-                loadNibFile(window: window)
                 startAnimating(animated: animated)
             case .end:
                 stopAnimating()
