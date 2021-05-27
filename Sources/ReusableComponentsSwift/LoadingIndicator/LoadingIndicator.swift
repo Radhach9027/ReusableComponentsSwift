@@ -25,7 +25,7 @@ public final class LoadingIndicator: UIView, Nib {
     
     private static var sharedInstance: LoadingIndicator?
     
-    class var shared : LoadingIndicator {
+    public class var shared : LoadingIndicator {
         
         guard let instance = self.sharedInstance else {
             let strongInstance = LoadingIndicator()
