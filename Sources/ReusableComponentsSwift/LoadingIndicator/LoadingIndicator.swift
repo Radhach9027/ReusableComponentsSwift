@@ -39,12 +39,17 @@ public final class LoadingIndicator: UIView, Nib {
         print("LoadingIndicator de-init")
     }
     
+    public func loadNibFile(window: UIWindow) {
+        registerNib(window: window)
+        self.statusImageView.image = self.statusImageView.image?.withRenderingMode(.alwaysTemplate)
+        self.statusImageView.tintColor = .white
+    }
+    
     public func loading(step: LoadingSteps, title: String? = "Loading...", window: UIWindow) {
         
         self.title = title
         switch step {
             case .start(let animated):
-                loadNibFile(window: window)
                 startAnimating(animated: animated)
             case .end:
                 stopAnimating()
@@ -63,12 +68,6 @@ public final class LoadingIndicator: UIView, Nib {
 
 
 private extension LoadingIndicator {
-    
-    private func loadNibFile(window: UIWindow) {
-        registerNib(window: window)
-        self.statusImageView.image = self.statusImageView.image?.withRenderingMode(.alwaysTemplate)
-        self.statusImageView.tintColor = .white
-    }
     
     func startAnimating(animated: Bool) {
         guard let title = self.title else {return}
