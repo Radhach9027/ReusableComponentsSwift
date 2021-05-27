@@ -12,7 +12,7 @@ public final class CustomPopup: UIView, Nib {
     private var _window: UIWindow?
     public init(window: UIWindow) {
         super.init(frame: .zero)
-        self.loadNibFile(window: window)
+        self.loadNibFile()
         self._window = window
         print("CustomPopup init")
     }
@@ -36,8 +36,8 @@ public final class CustomPopup: UIView, Nib {
 
 extension CustomPopup {
 
-    private func loadNibFile(window: UIWindow) {
-        registerNib(window: window)
+    private func loadNibFile() {
+        registerNib()
         headerBgView.clipsToBounds = true
         headerBgView.layer.cornerRadius = 10
         if #available(iOS 11.0, *) {

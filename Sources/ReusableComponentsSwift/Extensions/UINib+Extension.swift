@@ -1,22 +1,20 @@
 import UIKit
 
 public protocol Nib {
-    func registerNib(window: UIWindow)
+    func registerNib()
 }
 
 extension Nib where Self : UIView {
     
-    public func registerNib(window: UIWindow) {
+    public func registerNib() {
         guard let nibName = type(of: self).description().components(separatedBy: ".").last else { return }
-        guard let view = Bundle.module.loadNibNamed(nibName, owner: self, options: nil)?.first as? UIView
+        guard let view = Bundle.module.loadNibNamed(nibName, owner: self, options: nil)?.first as? UIView, let window = view.window
         else { return }
-        if !self.subviews.contains(view) {
             addSubview(view)
             window.addSubview(self)
             view.translatesAutoresizingMaskIntoConstraints = false
             self.translatesAutoresizingMaskIntoConstraints = false
             setConstraints(rootView: window, nibView: view)
-        }
     }
     
     func setConstraints(rootView: UIView, nibView: UIView) {
