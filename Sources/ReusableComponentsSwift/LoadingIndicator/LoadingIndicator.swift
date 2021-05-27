@@ -13,8 +13,6 @@ public enum AnimatePosition {
 
 public final class LoadingIndicator: UIView, Nib {
     
-    public static let shared = LoadingIndicator()
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var loadingView: CustomView!
@@ -25,27 +23,22 @@ public final class LoadingIndicator: UIView, Nib {
     private var duration: Double = 0.25
     private var _window: UIWindow?
     
-
-    private init() {
-        print("LoadingIndicator init")
+    public init(window: UIWindow) {
         super.init(frame: .zero)
+        self.loadNibFile(window: window)
+        self._window = window
+        print("LoadingIndicator init")
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     deinit {
         print("LoadingIndicator de-init")
     }
     
-    public func loadNibFile(window: UIWindow) {
-        registerNib(window: window)
-        self.statusImageView.image = self.statusImageView.image?.withRenderingMode(.alwaysTemplate)
-        self.statusImageView.tintColor = .white
-    }
-    
-    public func loading(step: LoadingSteps, title: String? = "Loading...", window: UIWindow) {
+    public func loading(step: LoadingSteps, title: String? = "Loading...") {
         
         self.title = title
         switch step {
@@ -68,6 +61,12 @@ public final class LoadingIndicator: UIView, Nib {
 
 
 private extension LoadingIndicator {
+    
+    private func loadNibFile(window: UIWindow) {
+        registerNib(window: window)
+        self.statusImageView.image = self.statusImageView.image?.withRenderingMode(.alwaysTemplate)
+        self.statusImageView.tintColor = .white
+    }
     
     func startAnimating(animated: Bool) {
         guard let title = self.title else {return}
