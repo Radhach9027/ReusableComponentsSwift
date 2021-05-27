@@ -88,6 +88,7 @@ private extension LoadingIndicator {
             self?.alpha = 0
         }) { [weak self] (true)  in
             self?.removeFromSuperview()
+            self?._window = nil
         }
     }
     
