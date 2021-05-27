@@ -21,12 +21,29 @@ public final class LoadingIndicator: UIView, Nib {
     private var status: Bool = false
     private var title: String?
     private var duration: Double = 0.25
-    private var _window: UIWindow?
+    public var _window: UIWindow?
     
-    public init(window: UIWindow) {
+    private static var sharedInstance: LoadingIndicator?
+    
+    class var shared : LoadingIndicator {
+        
+        guard let instance = self.sharedInstance else {
+            let strongInstance = LoadingIndicator()
+            self.sharedInstance = strongInstance
+            return strongInstance
+        }
+        return instance
+    }
+    
+    class func destroy() {
+        DispatchQueue.main.async() {
+            sharedInstance = nil
+        }
+    }
+    
+    public init() {
         super.init(frame: .zero)
-        self.loadNibFile(window: window)
-        self._window = window
+        self.loadNibFile(window: self._window!)
         print("LoadingIndicator init")
     }
     
@@ -87,8 +104,8 @@ private extension LoadingIndicator {
         UIView.animate(withDuration: 0.6, animations: { [weak self] in
             self?.alpha = 0
         }) { [weak self] (true)  in
+            LoadingIndicator.destroy()
             self?.removeFromSuperview()
-            self?._window = nil
         }
     }
     
