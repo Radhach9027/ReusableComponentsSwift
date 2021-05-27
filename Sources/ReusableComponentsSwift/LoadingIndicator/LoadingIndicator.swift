@@ -13,6 +13,8 @@ public enum AnimatePosition {
 
 public final class LoadingIndicator: UIView, Nib {
     
+    public static let shared = LoadingIndicator()
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var loadingView: CustomView!
@@ -21,45 +23,28 @@ public final class LoadingIndicator: UIView, Nib {
     private var status: Bool = false
     private var title: String?
     private var duration: Double = 0.25
-    public var _window: UIWindow?
+    private var _window: UIWindow?
     
-    private static var sharedInstance: LoadingIndicator?
-    
-    public class var shared : LoadingIndicator {
-        
-        guard let instance = self.sharedInstance else {
-            let strongInstance = LoadingIndicator()
-            self.sharedInstance = strongInstance
-            return strongInstance
-        }
-        return instance
-    }
-    
-    class func destroy() {
-        DispatchQueue.main.async() {
-            sharedInstance = nil
-        }
-    }
-    
-    public init() {
-        super.init(frame: .zero)
-        self.loadNibFile(window: self._window!)
+
+    private init() {
         print("LoadingIndicator init")
+        super.init(frame: .zero)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     deinit {
         print("LoadingIndicator de-init")
     }
     
-    public func loading(step: LoadingSteps, title: String? = "Loading...") {
+    public func loading(step: LoadingSteps, title: String? = "Loading...", window: UIWindow) {
         
         self.title = title
         switch step {
             case .start(let animated):
+                loadNibFile(window: window)
                 startAnimating(animated: animated)
             case .end:
                 stopAnimating()
@@ -104,7 +89,6 @@ private extension LoadingIndicator {
         UIView.animate(withDuration: 0.6, animations: { [weak self] in
             self?.alpha = 0
         }) { [weak self] (true)  in
-            LoadingIndicator.destroy()
             self?.removeFromSuperview()
         }
     }
