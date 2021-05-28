@@ -10,6 +10,7 @@ public enum CustomPopupAnimateOptions {
 public final class CustomPopup: UIView, Nib {
     
     private var _window: UIWindow?
+    
     public init(window: UIWindow) {
         super.init(frame: .zero)
         self.loadNibFile(window: window)
